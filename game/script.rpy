@@ -10,6 +10,13 @@ define pov = Character("[povname]")
 # The game starts here.
 
 label start:
+    g "Nonogram?"
+    menu:
+        "Yes":
+            jump play_nonogram
+        "No":
+            pass
+
     python:
         povname = renpy.input("What is your name?", length=32)
         povname = povname.strip()
