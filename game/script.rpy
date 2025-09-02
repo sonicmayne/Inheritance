@@ -32,6 +32,7 @@ label start:
             return
 
     g "Hello player. Text will go here. And here."
+    jump play_nonogram
 
     # This ends the game.
 
