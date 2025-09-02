@@ -3,11 +3,19 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+define povname = ""
 define g = Character("")
+define pov = Character("[povname]")
 
 # The game starts here.
 
 label start:
+    python:
+        povname = renpy.input("What is your name?", length=32)
+        povname = povname.strip()
+
+        if not povname:
+            povname = "You"
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -22,7 +30,7 @@ label start:
     show eileen happy
 
     # These display lines of dialogue.
-
+    pov "My name is [povname]"
     g "Are you over 18?"
     menu:
         "yes":
@@ -32,6 +40,7 @@ label start:
             return
 
     g "Hello player. Text will go here. And here."
+    g "Weeb detected! Weeb detected!"
     jump play_nonogram
 
     # This ends the game.
